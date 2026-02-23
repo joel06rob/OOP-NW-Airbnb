@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_NW_Airbnb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="700" Width="900"
+        WindowStartupLocation="CenterScreen"
+        >
+    
+    <!--Background Grid-->
+    <Grid ShowGridLines="True">
+
+        <!---Rows-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!---Cols-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--SECTION: Header-->
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="LightGray" Padding="10">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="AIR BNB NW" FontSize="40" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="btnLogin" Content="Login" Width="100" Height="50" Margin="10"/>
+                    <Button Name="btnContact"  Content="Contact" Width="100" Height="50" Margin="10"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!--SECTION: Left Side-->
+        <Border Grid.Row="1" Grid.Column="0" Background="LightGray" Padding="10">
+            <TextBlock Text="Quick Navigation"/>
+        </Border>
+
+        <!--SECTION: Right Side-->
+        <Border Grid.Row="1" Grid.Column="1" Background="#ffffff" Padding="10">
+            <TextBlock Text="Main Section"/>
+        </Border>
 
     </Grid>
 </Window>

@@ -10,7 +10,7 @@
         >
     
     <!--Background Grid-->
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <!---Rows-->
         <Grid.RowDefinitions>

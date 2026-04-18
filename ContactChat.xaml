@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_NW_Airbnb"
         mc:Ignorable="d"
-        Title="ContactChat" Height="700" Width="900"
+        Title="ContactChat"
+        Height="700" Width="900"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:ChatMessage}">
+                <Border x:Name="bubble"
+                    Padding="10"
+                    Margin="5"
+                    CornerRadius="10"
+                    Background="LightGray"
+                    HorizontalAlignment="Left"
+                    MaxWidth="300">
+
+                    <TextBlock Text="{Binding Message}" 
+                           TextWrapping="Wrap"
+                           Foreground="Black"/>
+                </Border>
+
+                <!-- Change Message style based on IsUser -->
+                <DataTemplate.Triggers>
+
+                    <!-- USER MESSAGE -->
+                    <DataTrigger Binding="{Binding IsUser}" Value="True">
+                        <Setter TargetName="bubble" Property="Background" Value="LightBlue"/>
+                        <Setter TargetName="bubble" Property="HorizontalAlignment" Value="Right"/>
+                    </DataTrigger>
+
+                </DataTemplate.Triggers>
+
+                </DataTemplate>
+        </Window.Resources>
 
     <Grid>
          <!---Rows-->
@@ -22,8 +51,30 @@
 
 <!--SECTION: Left Side-->
 <Border Grid.Row="0" Grid.Column="0" Background="LightGray" Padding="10">
-    <TextBlock Text="Quick Navigation"/>
-</Border>
+
+            <StackPanel>
+
+                <TextBlock Text="Quick Questions"
+                   FontWeight="Bold"
+                   Margin="0,0,0,10"/>
+
+                <!-- Buttons go here -->
+
+                <Button Content="How do I turn on heating?"
+                Margin="0,5"
+                
+                Click="QuickQuestion_Click"/>
+
+                <Button Content="What is the WiFi password?"
+                Margin="0,5"
+                Click="QuickQuestion_Click"/>
+
+                <Button Content="Where is the key for the door?"
+                Margin="0,5"
+                Click="QuickQuestion_Click"/>
+
+            </StackPanel>
+        </Border>
         
 <!--SECTION: Right Side-->
         <Border Grid.Row="0" Grid.Column="1" Background="White" Padding="10">
@@ -38,7 +89,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- Chat display area -->
-                <TextBlock Text="Chat Panel" Grid.Row="0" VerticalAlignment="Top"/>
+                <ListBox Name="lstChat" Grid.Row="0" />
 
                 <!-- Input box -->
                 <Grid Grid.Row="1" Margin="0,10,0,0">
@@ -52,7 +103,7 @@
                         <TextBox Name="txtChatInput" Height="30" Margin="0,0,10,0" Grid.Column="0"/>
 
                         <!-- Send Button -->
-                        <Button Name="btnChatInput" Content="Send" Width="80" Grid.Column="1"/>
+                        <Button Name="btnChatInput" Content="Send" Width="80" Grid.Column="1" Click="btnChatInput_Click"/>
 
                 </Grid>
 

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="700" Width="900"
         WindowStartupLocation="CenterScreen"
         >
-    
+
     <!--Background Grid-->
     <Grid>
 
@@ -25,12 +25,15 @@
         </Grid.ColumnDefinitions>
 
         <!--SECTION: Header-->
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="LightGray" Padding="10">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="10">
+            <Border.Background>
+                <ImageBrush ImageSource="/media/OOPNWHeroBG.png" Stretch="UniformToFill"/>
+            </Border.Background>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="AIR BNB NW" FontSize="40" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                <TextBlock Text="AIR BNB NW" FontSize="40" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="White" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="btnLogin" Content="Login" Width="100" Height="50" Margin="10"/>
-                    <Button Name="btnContact"  Content="Contact" Width="100" Height="50" Margin="10"/>
+                    <Button Name="btnLogin" Content="Login" Width="100" Height="50" Margin="10" Click="btnLogin_Click" Background="White"/>
+                    <Button Name="btnContact"  Content="Contact" Width="100" Height="50" Margin="10" Click="btnContact_Click" Background="White"/>
                 </StackPanel>
             </StackPanel>
         </Border>
